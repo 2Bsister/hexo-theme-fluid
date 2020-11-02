@@ -55,8 +55,8 @@ code:
       # See: https://highlightjs.org/static/demo/
       style: "Github Gist"
 
-      # 是否根据 style 改变代码背景色，**如果 style 是深色背景别忘了开启此项**
-      # If true, the code background will change color based on the style
+      # 是否根据 style 改变代码背景色（如果 style 是深色背景别忘了开启此项）
+      # If true, the code background will change color based on the style (If style has a dark background, don't forget to true)
       bg_color: false
 
     prismjs:
@@ -104,7 +104,8 @@ fun_features:
     enable: true
     height_px: 3
     color: "#29d"
-    options: { showSpinner: false }  # Visit https://github.com/rstacruz/nprogress
+    # See: https://github.com/rstacruz/nprogress
+    options: { showSpinner: false, trickleSpeed: 200 }
 
 # 主题暗色模式，开启后菜单中会出现切换按钮，用户浏览器会存储切换选项，并且会遵循 prefers-color-scheme 自动切换
 # Theme dark mode. If enable, a switch button will appear on the menu, each of the visitor's browser will store his switch option
@@ -541,11 +542,11 @@ post:
   prev_next:
     enable: true
 
-  # 文章底部自定义内容
-  # Custom content at the bottom of the post page
+  # 文章底部自定义区域（位于 footer 上方），支持 HTML，可插入赞赏码、公众号这类内容内容
+  # Custom content at the bottom of the post page (located above the footer)
   custom:
     enable: false
-    content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">' # 自定义区域，支持 HTML，可自行插入赞赏码、公众号二维码等内容
+    content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">'
 
   # 文章图片可点击放大
   # Zoom feature of images
@@ -556,8 +557,8 @@ post:
   # Support footnote syntax, footnotes will be generated at the bottom of the post page. If the Markdown renderer itself supports it, please disable it, otherwise it may conflict
   footnote:
     enable: true
-    # 脚注的节标题，也可以在 front-matter 中通过 `footnote: <h2>Reference</h2>` 这种形式修改单页的节标题
-    # The section title of the footnote, you can also modify the section title of a single page in the form of `footnote: <h2>Reference</h2>` in front-matter
+    # 脚注的节标题，也可以在 front-matter 中通过 `footnote: <h2>Reference</h2>` 这种形式修改单独页面的 header
+    # The section title of the footnote, you can also modify the header of a single page in the form of `footnote: <h2>Reference</h2>` in front-matter
     header: ''
 
   # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见：https://hexo.fluid-dev.com/docs/guide/##latex-数学公式
@@ -597,15 +598,17 @@ post:
 
 
 #---------------------------
-# 评论
-# Comments
+# 评论插件
+# Comment plugins
 #
 # 开启评论需要先在上方 `post: comments: enable: true`
-# Open comments need to be above `post: comments: enable: true`
+# Enable comments need to be above `post: comments: enable: true`
 #---------------------------
 
 # Utterances
-# See: https://utteranc.es/
+# 基于 GitHub Issues
+# Based on GitHub Issues
+# See: https://utteranc.es
 utterances:
   repo:
   issue_term: pathname
@@ -615,9 +618,11 @@ utterances:
   crossorigin: anonymous
 
 # Disqus
+# 基于第三方的服务，国内用户直接使用容易被墙，建议配合 Disqusjs
+# Third-party based services, it is a very popular
+# See: https://disqus.com
 disqus:
   shortname:
-
   # 以下为 Disqusjs 支持, 国内用户如果想使用 Disqus 建议配合使用
   # The following are Disqusjs configurations, please ignore if DisqusJS is not required
   # See: https://github.com/SukkaW/DisqusJS
@@ -625,6 +630,8 @@ disqus:
   apikey:
 
 # Gitalk
+# 基于 GitHub Issues
+# Based on GitHub Issues
 # See: https://github.com/gitalk/gitalk#options
 gitalk:
   clientID:
@@ -640,6 +647,8 @@ gitalk:
   createIssueManually: true
 
 # Valine
+# 基于 LeanCloud
+# Based on LeanCloud
 # See: https://valine.js.org/configuration.html
 valine:
   appid:
@@ -655,18 +664,24 @@ valine:
   serverURLs:
 
 # 畅言 Changyan
-# http://changyan.kuaizhan.com/
+# 基于第三方的服务
+# Third-party based services, insufficient support for regions outside China
+# http://changyan.kuaizhan.com
 changyan:
   appid: ''
   appkey: ''
 
 # 来必力 Livere
-# See: https://www.livere.com/my_Livere
+# 基于第三方的服务
+# Third-party based services
+# See: https://www.livere.com
 livere:
   uid: ''
 
 # Remark42
-# See: https://remark42.com/
+# 需要自己运行后端服务
+# Need to run the backend service yourself
+# See: https://remark42.com
 remark42:
   host:
   site_id:
@@ -674,6 +689,8 @@ remark42:
   locale: zh
 
 # twikoo
+# 基于腾讯云开发
+# Based on Tencent CloudBase
 # See: https://twikoo.js.org
 twikoo:
   env_id:
@@ -690,8 +707,8 @@ archive:
 
 
 #---------------------------
-# 分类归档页
-# Categories Page
+# 分类页
+# Category Page
 #---------------------------
 category:
   enable: true
@@ -715,8 +732,8 @@ category:
 
 
 #---------------------------
-# 标签归档页
-# Tags Page
+# 标签页
+# Tag Page
 #---------------------------
 tag:
   enable: true
